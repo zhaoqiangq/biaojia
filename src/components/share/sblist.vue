@@ -9,11 +9,13 @@
     >
       <div class="mphader">
           <h6>{{namecarddetail.realname}} &nbsp; </h6>
-        <img :src="namecarddetail.user_avatar" alt="">
+        <div class="img">
+          <img :src="namecarddetail.user_avatar" alt="">
+        </div>
         <span>{{namecarddetail.card_name}}</span>
-        <router-link to="/app" id="attention">
+        <div id="attention" @click="attention">
           关注
-        </router-link>
+        </div>
       </div>
       <ul class="seachNav">
         <li @click="jiage = !jiage">价格</li>
@@ -21,7 +23,7 @@
         <li @click="fuwu = !fuwu">服务类目</li>
       </ul>
             <ul class="list1" v-if="ysid==1">
-        <router-link tag="li" v-for="item,index in sblist" :key="index" :to="{path:'/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num}}">
+        <router-link tag="li" v-for="item,index in sblist" :key="index" :to="{path:'/module/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num}}">
            <div class="img">
               <img v-bind:src="item.tm_img" alt="">
            </div>
@@ -35,14 +37,14 @@
         </router-link>
       </ul>
             <ul class="list2" v-if="ysid==2">
-        <router-link tag="li" v-for="item,index in sblist" :key="index" :to="{path:'/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num}}">
+        <router-link tag="li" v-for="item,index in sblist" :key="index" :to="{path:'/module/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num}}">
         <div class="img"><img v-bind:src="item.tm_img" alt=""></div>
           <p class="first"><span class="gsname">{{item.apply_name}}</span> <img :src="item.auth_img" alt=""></p>
           <p><span class="leibei">{{item.tm_bigtype}}{{item.tm_bigtype_name}}</span><i>￥{{parseInt(item.price)}}</i></p>
         </router-link>
       </ul>
             <ul class="list3" v-if="ysid==3" >
-        <router-link tag="li" v-for="item,index in sblist" :key="index"  :to="{path:'/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num}}">
+        <router-link tag="li" v-for="item,index in sblist" :key="index"  :to="{path:'/module/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num}}">
           <div class="img"><img v-bind:src="item.tm_img" alt=""></div>
           <p class="first"><span class="gsname">{{item.apply_name}}</span> <img :src="item.auth_img"  alt=""></p>
           <p><span class="leibei">{{item.tm_bigtype}}{{item.tm_bigtype_name}}</span></p>
@@ -51,7 +53,7 @@
       </ul>
             <!--加载的数据-->
             <ul class="list1" v-if="ysid==1">
-             <router-link tag="li" v-for="item,index in jiazailist" :key="index" :to="{path:'/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num}}">
+             <router-link tag="li" v-for="item,index in jiazailist" :key="index" :to="{path:'/module/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num}}">
           <div class="img">
             <img v-bind:src="item.tm_img" alt="">
           </div>
@@ -65,14 +67,14 @@
         </router-link>
       </ul>
             <ul class="list2" v-if="ysid==2">
-        <router-link tag="li" v-for="item,index in jiazailist" :key="index" :to="{path:'/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num}}">
+        <router-link tag="li" v-for="item,index in jiazailist" :key="index" :to="{path:'/module/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num}}">
           <div class="img"><img v-bind:src="item.tm_img" alt=""></div>
           <p  class="first"><span class="gsname">{{item.apply_name}}</span> <img :src="item.auth_img" alt=""></p>
           <p><span class="leibei">{{item.tm_bigtype}}{{item.tm_bigtype_name}}</span><i>￥{{parseInt(item.price)}}</i></p>
         </router-link>
       </ul>
             <ul class="list3" v-if="ysid==3">
-        <router-link tag="li" v-for="item,index in jiazailist" :key="index"  :to="{path:'/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num}}">
+        <router-link tag="li" v-for="item,index in jiazailist" :key="index"  :to="{path:'/module/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num}}">
           <div class="img"><img v-bind:src="item.tm_img" alt=""></div>
           <p class="first"><span class="gsname">{{item.apply_name}}</span> <img :src="item.auth_img"  alt=""></p>
           <p><span class="leibei">{{item.tm_bigtype}}{{item.tm_bigtype_name}}</span></p>
@@ -84,13 +86,15 @@
     <sbliebie v-show="sbliebie" v-on:parsblblist="parsblblists" v-on:hidesbliebie="hidesbliebie" :sblblist="sblblist"></sbliebie>
     <fuwu v-show="fuwu" v-on:hidefuwu="hidefuwu"  v-on:parfwlist="parfwlists" :smalltype="smalltype"></fuwu>
     <ul class="buttomNav">
-        <router-link to="/app" tag="li">
-          <img src="../../assets/images/buicon01.png" alt="">收藏
-        </router-link>
-        <router-link to="/app" tag="li">
+        <!--<router-link to="/app" tag="li">-->
+      <li @click="collect">
+        <img src="../../assets/images/buicon01.png" alt="">收藏
+      </li>
+        <!--</router-link>-->
+        <router-link to="/module/app" tag="li">
           <img src="../../assets/images/buicon02.png" alt="">我也要做名片
         </router-link>
-        <router-link to="/app" tag="li">
+        <router-link to="/module/app" tag="li">
           <img src="../../assets/images/buicon03.png" alt="">我的名片
         </router-link>
       </ul>
@@ -101,6 +105,7 @@
   import fuwu from '@/components/share/fuwu'
   import sbliebie from '@/components/share/sbliebie'
   import http from '../../config/http'
+  import qs from 'qs'
   let firstLoaded = false;
   export default {
     data () {
@@ -261,6 +266,57 @@
            console.log(error)
         })
       },
+      //收藏
+      collect(){
+        let token = window.localStorage.getItem('shanbiao');
+        if(!token){
+          this.$router.push({path: '/module/register',query: {redirect:'collectapp',id:this.$route.query.id}});
+        }else {
+          http.post('/v1/brand/namecard-collect',
+            qs.stringify({
+              nc_id:this.$route.query.id
+            }))
+            .then((res)=>{
+              if(res.status==200){
+                this.$router.push({
+                  path: '/module/app'
+                })
+              }
+            })
+            .catch((error)=>{
+              $('.tishi #tstext').text(error.response.data.message);
+              $('.tishi').show().delay(2000).fadeOut();
+              this.$router.push({
+                path: '/module/app'
+              })
+            })
+        }
+      },
+      //关注
+      attention(){
+        let token = window.localStorage.getItem('shanbiao');
+        if(!token){
+          this.$router.push({path: '/module/register',query: {redirect:'attentionapp',userid:this.namecarddetail.user_id}});
+        }else {
+          http.put('v1/member/follow/'+this.namecarddetail.user_id+'')
+            .then((res)=>{
+               if(res.status==200){
+                 $('.tishi #tstext').text('您已关注成功');
+                 $('.tishi').show().delay(2000).fadeOut();
+                 this.$router.push({
+                   path: '/module/app'
+                 })
+               }
+            })
+            .catch((error)=>{
+              $('.tishi #tstext').text(error.response.data.message);
+              $('.tishi').show().delay(2000).fadeOut();
+              this.$router.push({
+                path: '/module/app'
+              })
+            })
+        }
+      }
     },
     created(){
       //获取服务类别

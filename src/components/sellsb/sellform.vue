@@ -34,7 +34,6 @@
     </div>
     <sbliebie v-show="sbliebie" v-on:hidesbliebie="hidesbliebie" :sblblist="sblblist" v-on:parsblblist="parsblblists"></sbliebie>
     <div class="fontalert">
-        <span>提示：交易由平台担保双方利益执行；交易成功平台将收取20%服务费。</span>
         <div v-if="issafari" @click="safarshows = true"><img src="../../assets/images/zcicon03.png" alt="">点击此处保存到桌面</div>
       </div>
     <div class="safaris" v-show="safarshows">
@@ -42,10 +41,10 @@
       <div class="imgs"></div>
     </div>
     <ul class="sellfooter" v-show="isfooter">
-      <router-link tag="li"  :to="{path:'/sellform'}">
+      <router-link tag="li"  :to="{path:'/module/sellform'}">
         <img src="../../assets/images/sellicon04.png" alt="">发布商标
       </router-link>
-      <router-link tag="li"  :to="{path:'/iissue'}">
+      <router-link tag="li"  :to="{path:'/module/iissue'}">
         <img src="../../assets/images/sellicon05.png" alt="">我的发布
       </router-link>
       <li @click="ishref = !ishref"><img src="../../assets/images/sellicon07.png" alt="">关注我们</li>
@@ -150,7 +149,7 @@
         }
         let token = window.localStorage.getItem('shanbiao');
         if(!token){
-          this.$router.push({path: '/register',query: {isaccount:true,redirect:'sellform',registration:this.registration,parsblblist:this.parsblblist,money:this.money,name:this.name}});
+          this.$router.push({path: '/module/register',query: {isaccount:true,redirect:'sellform',registration:this.registration,parsblblist:this.parsblblist,money:this.money,name:this.name}});
         }else {
           http.post('/v1/market/shelf',
             qs.stringify({
@@ -163,7 +162,7 @@
                 $('.tishi #tstext').text('不能上架重复的商标');
                 $('.tishi').show().delay(2000).fadeOut();
               }else if(res.data.data.row==1){
-                this.$router.push({path: '/succeedapp'});
+                this.$router.push({path: '/module/succeedapp'});
                 this.$buryData('singleIssue');
               }
             })
@@ -179,7 +178,7 @@
           $('.tishi #tstext').text('请输入商标名称');
           $('.tishi').show().delay(1000).fadeOut();
         }else {
-          this.$router.push({path: '/batchissue',query: {vals: this.searchword}});
+          this.$router.push({path: '/module/batchissue',query: {vals: this.searchword}});
         }
       },
       // 公众号名称复制

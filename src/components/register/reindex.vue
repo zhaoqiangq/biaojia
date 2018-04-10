@@ -35,7 +35,7 @@
             $('.tishi #tstext').text('请输入商标名称');
             $('.tishi').show().delay(1000).fadeOut();
           }else {
-            this.$router.push({path: '/relist',query: {vals: this.val}});
+            this.$router.push({path: '/module/relist',query: {vals: this.val}});
           }
       }
     },

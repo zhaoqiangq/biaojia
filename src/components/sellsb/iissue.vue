@@ -10,7 +10,7 @@
         style="top:1rem"
       >
         <ul class="sblist">
-            <router-link tag="li" v-for="item,index in sblist" :key="index" :to="{path:'/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num}}">
+            <router-link tag="li" v-for="item,index in sblist" :key="index" :to="{path:'/module/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num}}">
             <img :src="item.tm_img" alt="">
             <div class="font">
               <h6>{{item.tm_name}} </h6>
@@ -21,7 +21,7 @@
           </router-link>
         </ul>
         <ul class="sblist" v-if="jiazailist.length">
-          <router-link tag="li"v-for="item,index in jiazailist" :key="index" :to="{path:'/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num}}">
+          <router-link tag="li"v-for="item,index in jiazailist" :key="index" :to="{path:'/module/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num}}">
             <img :src="item.tm_img" alt="">
             <div class="font">
               <h6>{{item.tm_name}} </h6>
@@ -37,10 +37,10 @@
         <div @click="close"></div>
       </div>
       <ul class="sellfooter">
-        <router-link tag="li"  :to="{path:'/sellform'}">
+        <router-link tag="li"  :to="{path:'/module/sellform'}">
           <img src="../../assets/images/sellicon03.png" alt="">发布商标
         </router-link>
-        <router-link tag="li"  :to="{path:'/iissue'}">
+        <router-link tag="li"  :to="{path:'/module/iissue'}">
           <img src="../../assets/images/sellicon06.png" alt="">我的发布
         </router-link>
         <li @click="ishref = !ishref"

@@ -14,10 +14,10 @@
     </div>
     <a :href="href" class="xiazai">下载APP</a>
     <ul class="sellfooter">
-      <router-link tag="li"  :to="{path:'/sellform'}">
+      <router-link tag="li"  :to="{path:'/module/sellform'}">
         <img src="../../assets/images/sellicon03.png" alt="">发布商标
       </router-link>
-      <router-link tag="li"  :to="{path:'/iissue'}">
+      <router-link tag="li"  :to="{path:'/module/iissue'}">
         <img src="../../assets/images/sellicon05.png" alt="">我的发布
       </router-link>
       <li @click="ishref = !ishref"><img src="../../assets/images/sellicon07.png" alt="">关注我们</li>

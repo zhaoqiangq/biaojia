@@ -13,14 +13,21 @@
     font-weight: 500;
     line-height: 1.2rem;
   }
-  img{
-    width: percentage(160/670);
+  .img{
+    width: 2rem;
+    height: 2rem;
+    overflow: hidden;
+    border-radius: 50%;
+    float: left;
+    img{
+      width: 130%;
+    }
   }
   span{
-    width: percentage(470/670);
     font-size: .32rem;
     color: #fff;
-    float: right;
+    float: left;
+    margin-left: 0.3rem;
     margin-top: 0.25rem;
   }
   #attention{

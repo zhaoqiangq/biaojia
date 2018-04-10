@@ -87,10 +87,17 @@ let zhuche = (resolve) => {
   })
 }
 
-//用户协议
+//APP用户协议
 let userxy = (resolve) => {
   return require.ensure([], () => {
     resolve(require('@/components/login/userxy'))
+  })
+}
+
+//web用户协议
+let webuserxy = (resolve) => {
+  return require.ensure([], () => {
+    resolve(require('@/components/login/webuserxy'))
   })
 }
 
@@ -146,6 +153,12 @@ let buylist = (resolve) => {
 let recommend = (resolve) => {
   return require.ensure([], () => {
     resolve(require('@/components/buyRand/recommend'))
+  })
+}
+//-------------------精品商标------------------------//
+let boutique = (resolve) => {
+  return require.ensure([], () => {
+    resolve(require('@/components/buyRand/boutique'))
   })
 }
 
@@ -212,65 +225,70 @@ let router = new Router({
   },
   routes: [
     {
-      path: '/shareCard',name: 'sbList',
-      meta:{title: '分享商标列表',keepAlive: true,index:1,scrolltops:'',},
+      path: '/module/shareCard',name: 'sbList',
+      meta:{title: '商标列表',keepAlive: true,index:1,scrolltops:'',},
       component: sbList
     },
     {
-      path: '/sbdetails',name:'sbDetails',
-      meta: {title: '分享商标详情',keepAlive: true,index:2,},
+      path: '/module/sbdetails',name:'sbDetails',
+      meta: {title: '商标详情',keepAlive: true,index:2,},
       component:sbDetails  },
     {
-      path: '/xqfwlist',name:'xqfwlist',
+      path: '/module/xqfwlist',name:'xqfwlist',
       meta: {title: '商标服务列表',keepAlive: true,index:3,},
       component:xqfwlist
     },
     {
-      path: '/xqsbzt',name:'xqsbzt',
+      path: '/module/xqsbzt',name:'xqsbzt',
       meta: {title: '商标状态',keepAlive: true,index:3,},
       component:xqsbzt
     },
     {
-      path: '/xqsqrlist',name:'xqsqrlist',
+      path: '/module/xqsqrlist',name:'xqsqrlist',
       meta: {title: '申请人信息',keepAlive: true,index:3,},
       component:xqsqrlist
     },
     {
-      path: '/app',name:'app',
+      path: '/module/app',name:'app',
       meta: {title: '下载商标货架app',login:true},
       component:app
     },
     {
-      path: '/guide',name:'guide',
+      path: '/module/guide',name:'guide',
       meta: {title: '新手引导', },
       component:guide
     },
     {
-      path:'/register',name:'register',component:register,
+      path:'/module/register',name:'register',component:register,
       children:[
-        {path:'/register',meta: {title: '快捷登录'},component:shortcut},
-        {path:'/account',meta: {title: '账号登录'},component:account},
+        {path:'/module/register',meta: {title: '快捷登录'},component:shortcut},
+        {path:'/module/account',meta: {title: '账号登录'},component:account},
       ]
     },
     {
-      path:'/password',
+      path:'/module/password',
       meta: {title: '忘记密码'},
       component:password
     },
     {
-      path:'/newpassword',
+      path:'/module/newpassword',
       meta: {title: '重新输入密码'},
       component:newpassword
     },
     {
-      path:'/zhuche',
+      path:'/module/zhuche',
       meta: {title: '注册账号'},
       component:zhuche
     },
     {
-      path:'/userxy',
+      path:'/module/userxy',
       meta: {title: '用户服务协议'},
       component:userxy
+    },
+    {
+      path:'/module/webuserxy',
+      meta: {title: '用户服务协议'},
+      component:webuserxy
     },
     {
       path:'*',
@@ -278,86 +296,92 @@ let router = new Router({
       component:null404
     },
     {
-      path:'/notice',
+      path:'/module/notice',
       meta: {title: '公告消息'},
       component:notice
     },
     {
-      path:'/file',
+      path:'/module/file',
       meta: {title: '上传图片'},
       component:file
     },
     //-------注册商标------------//
     {
-      path:'/reindex',
+      path:'/module/reindex',
       meta: {title: '注册商标',index:0,},
       component:reindex
     },
     {
-      path:'/relist',
+      path:'/module/relist',
       meta: {title: '商标列表',index:1,},
       component:relist
     },
     {
-      path:'/report',
+      path:'/module/report',
       meta: {title: '注册成功率'},
       component:report
     },
     //-----买商标----------//
     {
-      path:'/buyindex',
+      path:'/module/buyindex',
       meta: {title: '买商标',index:0,},
       component:buyindex
     },
     {
-      path:'/buylist',
+      path:'/module/buylist',
       meta: {title: '商标列表',index:1,scrolltops:'', },
       component:buylist
     },
     {
-      path:'/recommend',
+      path:'/module/recommend',
       meta: {title: '商标列表',index:1,scrolltops:'',},
       component:recommend
     },
+    //-----精品商标----------//
+    {
+      path:'/module/boutique',
+      meta: {title: '精品商标',index:1,scrolltops:'',},
+      component:boutique
+    },
     //-----卖商标----------//
     {
-      path:'/sellform',
+      path:'/module/sellform',
       meta: {title: '卖商标',},
       component:sellform
     },
     {
-      path:'/succeedapp',
+      path:'/module/succeedapp',
       meta: {title: '下载App',},
       component:succeedapp
     },
     {
-      path:'/batchissue',
+      path:'/module/batchissue',
       meta: {title: '卖商标',},
       component:batchissue
     },
     {
-      path:'/iissue',
+      path:'/module/iissue',
       meta: {title: '我的发布',login:true},
       component:iissue
     },
     //-----品牌维权----------//
     {
-      path:'/brindex',
-      meta: {title: '品牌维权首页',},
+      path:'/module/brindex',
+      meta: {title: '品牌维权',},
       component:brindex
     },
     {
-      path:'/brseach',
+      path:'/module/brseach',
       meta: {title: '品牌维权详情',},
       component:brseach
     },
     {
-      path:'/industryindex',
-      meta: {title: '行业情报首页',},
+      path:'/module/industryindex',
+      meta: {title: '行业情报',},
       component:industryindex
     },
     {
-      path:'/indseach',
+      path:'/module/indseach',
       meta: {title: '行业情报详情',},
       component:indseach
     },
@@ -365,12 +389,15 @@ let router = new Router({
 })
 
 //设置title
-router.afterEach((to,from)=>{
+router.beforeEach((to,from,next)=>{
   if(to.meta.title){
-    window.document.title = to.meta.title
+    window.document.title = to.meta.title;
+    next();
   }else {
-    window.document.title = '标价'
+    window.document.title = '标价';
+    next();
   }
+
 })
 
 //自动登录
@@ -378,11 +405,11 @@ router.beforeEach((to, from, next) => {
   let token = window.localStorage.getItem('shanbiao');
   if (to.matched.some(record => record.meta.login) && (!token || token === null)) {
     next({
-      path: '/register',
+      path: '/module/register',
       query: {
-        redirect: to.path.slice(1)
+        redirect: to.path.slice(8)
       }
-    })
+  })
   } else {
       next()
   }

@@ -3,7 +3,7 @@
       <div class="xqheader">
           <div class="xqreturn" @click="backHandle"></div>
           <span>商标详情</span>
-        <router-link tag="div" class="recommend" v-if="isshow" :to='{path:"/recommend",query:{sblb:details.tm_bigtype}}'>
+        <router-link tag="div" class="recommend"  v-if="iszhineng" :to='{path:"/module/recommend",query:{sblb:details.tm_bigtype}}'>
           智能推荐
         </router-link>
       </div>
@@ -16,7 +16,7 @@
           <span>类别：</span>
           {{details.tm_bigtype_name}}
         </li>
-        <router-link tag="li" class="sbzt" :to='{path:"/xqsbzt",query:{sblb:intCls,zch:zch}}'>
+        <router-link tag="li" class="sbzt" :to='{path:"/module/xqsbzt",query:{sblb:intCls,zch:zch}}'>
           <span>当前状态：</span>
           {{details.current_status}}
         </router-link>
@@ -38,10 +38,10 @@
         </li>
       </ul>
       <ul class="lxqlist " v-bind:class="{active:isshow}">
-        <router-link tag="li" class="link" :to='{path:"/xqfwlist",query:{sblb:intCls,zch:zch}}'>
+        <router-link tag="li" class="link" :to='{path:"/module/xqfwlist",query:{sblb:intCls,zch:zch}}'>
           <span>商标服务列表</span>
         </router-link>
-        <router-link tag="li" class="link" :to='{path:"/xqsqrlist",query:{sblb:intCls,zch:zch}}'>
+        <router-link tag="li" class="link" :to='{path:"/module/xqsqrlist",query:{sblb:intCls,zch:zch}}'>
           <span>申请人信息</span>
         </router-link>
         <li><span>代理公司</span><span class="right">{{details.agent}}</span></li>
@@ -62,6 +62,7 @@
         zch:this.$route.query.zch,
         intCls:this.$route.query.sblb,
         isshow:this.$route.query.isshow,
+        iszhineng:this.$route.query.zhineng
       }
     },
     methods:{

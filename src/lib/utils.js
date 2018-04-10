@@ -153,7 +153,6 @@ export default {
      }
 
      //微信号
-
      vm.prototype.$wx = (message) =>{
        return '标架'
      }

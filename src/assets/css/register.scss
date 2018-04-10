@@ -846,6 +846,15 @@
     margin-top: 2rem;
     margin-bottom: 0.3rem;
   }
+  .all{
+    width:2rem;
+    height: .8rem;
+    border: 1px solid #e9ebee;
+    text-align: center;
+    line-height: .8rem;
+    margin: 0.5rem auto;
+    border-radius: 0.1rem;
+  }
 }
 //智能推荐列表
 .recommend{
@@ -933,3 +942,115 @@
   }
 }
 
+//---------精品商标----------------
+.boutique{
+  width: 100%;
+  position: fixed;
+  top:0;left: 0;
+  bottom: 0;right: 0;
+  margin: auto;
+  overflow: hidden;
+  .bheader{
+    width: 100%;
+    height: 1.2rem;
+    padding: 0.2rem 0.25rem;
+    box-sizing: border-box;
+    .input{
+      width: percentage(600/700);
+      height: 100%;
+      background-color: #f7f7f8;
+      border-radius: 0.1rem;
+      float: left;
+      .selete{
+        width: 32%;
+        height: 100%;
+        font-size: .28rem;
+        color: #62686f;
+        float: left;
+        line-height: .8rem;
+        padding-left: 0.2rem;
+        box-sizing: border-box;
+        background: url(#{$backimg}zciocn05.png)no-repeat;
+        background-position: right center;
+        background-size: .13rem .09rem;
+        position: relative;
+        ul{
+          position: absolute;
+          top: 0.8rem;
+          background: #fff;
+          left: 0px;
+          width: 100%;
+          box-shadow: #969696 0px 0px 10px;
+          z-index: 88888;
+          li{
+            width: 100%;
+            height: .8rem;
+            border-bottom: 1px solid #e9ebee;
+            line-height: .8rem;
+            text-align: center;
+          }
+        }
+      }
+      input{
+        width: 67%;
+        height: 100%;
+        -webkit-box-shadow: 0 0 0 1000px #f7f7f8 inset;
+        padding-left: 0.2rem;
+        box-sizing: border-box;
+        font-size: .28rem;
+      }
+    }
+    span{
+      display: block;
+      width: percentage(90/700);
+      text-align: center;
+      line-height: .8rem;
+      float: right;
+      font-size: .34rem;
+    }
+  }
+  .bsblist{
+    width: 100%;
+    @include clear;
+    column-count: 2;
+    column-gap: .25rem;
+    padding: 0 0.23rem;
+    box-sizing: border-box;
+    li{
+      width: 3.4rem;
+      float: left;
+      border: 1px solid #e9ebee;
+      margin-bottom: 0.2rem;
+      break-inside: avoid;
+      box-sizing: border-box;
+      img{
+        width: 100%;
+      }
+      .font{
+        width: 100%;
+        padding: 0 0.15rem;
+        box-sizing: border-box;
+        h6{
+          font-size: .3rem;
+          color: #001026;
+        }
+        .ppai{
+          width: 1.2rem;
+          height: .36rem;
+          text-align: center;
+          line-height: .36rem;
+          border-radius: 0.05rem;
+          font-size: .2rem;
+          color: #62686f;
+          border: 1px solid #d6d6e4;
+          margin: 0.2rem 0;
+        }
+        p{
+          font-size: .22rem;
+          color: #62686f;
+          margin-bottom: 0.2rem;
+        }
+      }
+    }
+  }
+}

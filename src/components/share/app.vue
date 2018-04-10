@@ -31,6 +31,7 @@
       http.get('/v1/biz/version/1',{
       })
         .then((res)=>{
+          console.log(res);
           this.href = res.data.data.url;
         })
         .catch((error)=>{

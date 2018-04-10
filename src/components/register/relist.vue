@@ -139,7 +139,7 @@
     >
     <ul class="sblist">
       <li>
-        <router-link tag="div" class="top" :to="{path:'/sbdetails',query:{sblb:25,zch:14348143}}">
+        <router-link tag="div" class="top" :to="{path:'/module/sbdetails',query:{sblb:25,zch:14348143}}">
           <img src="../../assets/images/img.jpg" alt="">
           <div class="font">
             <h6>商标名称填写处 </h6>
@@ -155,7 +155,7 @@
         <div class="boreder"></div>
       </li>
       <li>
-        <router-link tag="div" class="top" :to="{path:'/sbdetails',query:{sblb:25,zch:14348143}}">
+        <router-link tag="div" class="top" :to="{path:'/module/sbdetails',query:{sblb:25,zch:14348143}}">
           <img src="../../assets/images/img.jpg" alt="">
           <div class="font">
             <h6>商标名称填写处 </h6>
@@ -171,7 +171,7 @@
         <div class="boreder"></div>
       </li>
       <li>
-        <router-link tag="div" class="top" :to="{path:'/sbdetails',query:{sblb:25,zch:14348143}}">
+        <router-link tag="div" class="top" :to="{path:'/module/sbdetails',query:{sblb:25,zch:14348143}}">
           <img src="../../assets/images/img.jpg" alt="">
           <div class="font">
             <h6>商标名称填写处 </h6>
@@ -187,7 +187,7 @@
         <div class="boreder"></div>
       </li>
       <li>
-        <router-link tag="div" class="top" :to="{path:'/sbdetails',query:{sblb:25,zch:14348143}}">
+        <router-link tag="div" class="top" :to="{path:'/module/sbdetails',query:{sblb:25,zch:14348143}}">
           <img src="../../assets/images/img.jpg" alt="">
           <div class="font">
             <h6>商标名称填写处 </h6>
@@ -203,7 +203,7 @@
         <div class="boreder"></div>
       </li>
       <li>
-        <router-link tag="div" class="top" :to="{path:'/sbdetails',query:{sblb:25,zch:14348143}}">
+        <router-link tag="div" class="top" :to="{path:'/module/sbdetails',query:{sblb:25,zch:14348143}}">
           <img src="../../assets/images/img.jpg" alt="">
           <div class="font">
             <h6>商标名称填写处 </h6>
@@ -219,7 +219,7 @@
         <div class="boreder"></div>
       </li>
       <li>
-        <router-link tag="div" class="top" :to="{path:'/sbdetails',query:{sblb:25,zch:14348143}}">
+        <router-link tag="div" class="top" :to="{path:'/module/sbdetails',query:{sblb:25,zch:14348143}}">
           <img src="../../assets/images/img.jpg" alt="">
           <div class="font">
             <h6>商标名称填写处 </h6>
@@ -235,7 +235,7 @@
         <div class="boreder"></div>
       </li>
       <li>
-        <router-link tag="div" class="top" :to="{path:'/sbdetails',query:{sblb:25,zch:14348143}}">
+        <router-link tag="div" class="top" :to="{path:'/module/module/sbdetails',query:{sblb:25,zch:14348143}}">
           <img src="../../assets/images/img.jpg" alt="">
           <div class="font">
             <h6>商标名称填写处 </h6>
@@ -251,7 +251,7 @@
         <div class="boreder"></div>
       </li>
       <li>
-        <router-link tag="div" class="top" :to="{path:'/sbdetails',query:{sblb:25,zch:14348143}}">
+        <router-link tag="div" class="top" :to="{path:'/module/sbdetails',query:{sblb:25,zch:14348143}}">
           <img src="../../assets/images/img.jpg" alt="">
           <div class="font">
             <h6>商标名称填写处 </h6>

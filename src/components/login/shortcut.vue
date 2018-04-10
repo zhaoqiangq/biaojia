@@ -20,7 +20,7 @@
       <div class="user_login" @click="Login">登录</div>
       <p>
         第一次登录即是注册<br>
-        *我已阅读并同意 <router-link to="/userxy">《用户服务协议》</router-link>
+        *我已阅读并同意 <router-link to="/module/webuserxy">《用户服务协议》</router-link>
       </p>
   </div>
 </template>
@@ -98,16 +98,55 @@
                 redirect = 'app'
               }
               if(redirect == 'sellform'){
-                this.$router.push({path: '/sellform',query: {istrue:true,registration:this.$route.query.registration,parsblblist:this.$route.query.parsblblist,money:this.$route.query.money,name:this.$route.query.name}});
+                this.$router.push({path: '/module/sellform',query: {istrue:true,registration:this.$route.query.registration,parsblblist:this.$route.query.parsblblist,money:this.$route.query.money,name:this.$route.query.name}});
                 return;
               }
               if(redirect == 'batchissue'){
-                this.$router.push({path: '/batchissue',query: {vals:this.$route.query.query}});
+                this.$router.push({path: '/module/batchissue',query: {vals:this.$route.query.query}});
+                return;
+              }
+              //分享名片收藏
+              if(redirect == 'collectapp'){
+                 http.post('/v1/brand/namecard-collect',
+                  qs.stringify({
+                    nc_id:this.$route.query.id
+                  }))
+                  .then((res)=>{
+                    if(res.status==200){
+                      this.$router.push({
+                        path: '/module/app'
+                      })
+                    }
+                  })
+                  .catch((error)=>{
+                    console.log(error)
+                  })
+                return;
+              }
+              //分享名片关注
+              if(redirect == 'attentionapp'){
+                http.put('v1/member/follow/'+this.$route.query.userid+'')
+                  .then((res)=>{
+                    if(res.status==200){
+                      $('.tishi #tstext').text('您已关注成功');
+                      $('.tishi').show().delay(2000).fadeOut();
+                      this.$router.push({
+                        path: '/module/app'
+                      })
+                    }
+                  })
+                  .catch((error)=>{
+                    $('.tishi #tstext').text(error.response.data.message);
+                    $('.tishi').show().delay(2000).fadeOut();
+                    this.$router.push({
+                      path: '/module/app'
+                    })
+                  })
                 return;
               }
 
               this.$router.push({
-                path: '/'+redirect
+                path: '/module/'+redirect
               })
               this.$buryData('fastlogin');
             })

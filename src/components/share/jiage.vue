@@ -50,6 +50,11 @@
     watch:{
       mininputnumber:function () {
         this.checkedNames = [];
+        deep:true;
+      },
+      maxinputnumber:function () {
+        this.checkedNames = [];
+        deep:true;
       }
     },
     methods:{

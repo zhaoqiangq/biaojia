@@ -17,5 +17,15 @@ var HTTP = axios.create({
             'accessToken': token
           }
 })
+HTTP.get('v1/member/user')
+  .then((res)=>{
+    console.log(res)
+  })
+  .catch((error)=>{
+    if(error.response.data.code==401){
+      window.localStorage.removeItem('shanbiao');
+    }
+  })
+
 
 export default HTTP;

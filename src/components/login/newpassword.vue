@@ -46,10 +46,10 @@ export default{
             .then((res)=>{
                 let redirect = this.$route.query.redirect;
                   if(!redirect){
-                     redirect = 'app'
+                     redirect = '/app'
                   }
                    this.$router.push({
-                       path: '/'+redirect
+                       path: '/module/'+redirect
                    })
              })
              .catch((error)=>{

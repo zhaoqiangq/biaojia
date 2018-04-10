@@ -44,10 +44,10 @@
       没有商标数据
     </div>
     <ul class="sellfooter">
-      <router-link tag="li"  :to="{path:'/sellform'}">
+      <router-link tag="li"  :to="{path:'/module/sellform'}">
         <img src="../../assets/images/sellicon04.png" alt="">发布商标
       </router-link>
-      <router-link tag="li"  :to="{path:'/iissue'}">
+      <router-link tag="li"  :to="{path:'/module/iissue'}">
         <img src="../../assets/images/sellicon05.png" alt="">我的发布
       </router-link>
       <li @click="ishref = !ishref"
@@ -118,7 +118,7 @@
       issuesb(applicantCn,idCardNo){
         let token = window.localStorage.getItem('shanbiao');
         if(!token){
-          this.$router.push({path: '/register',query: {isaccount:true,redirect:'batchissue',query:this.val}});
+          this.$router.push({path: '/module/register',query: {isaccount:true,redirect:'batchissue',query:this.val}});
         }else {
           http.post('/v1/biz/trademark-storage?accessToken=',
             qs.stringify({
@@ -127,17 +127,23 @@
             }))
             .then((res) => {
               if (res.data.code == 200) {
-                this.$router.push({path: '/succeedapp'});
+                this.$router.push({path: '/module/succeedapp'});
                 this.$buryData('batchIssue');
               }
             })
             .catch((error) => {
               console.log(error)
+              $('.tishi #tstext').text(error.response.data.message);
+              $('.tishi').show().delay(2000).fadeOut();
             })
         }
       },
       //发布搜索词为注册号的商标
       zchfabu(tm_bigtype,reg_num){
+        let token = window.localStorage.getItem('shanbiao');
+        if(!token){
+          this.$router.push({path: '/module/register',query: {isaccount:true,redirect:'batchissue',query:this.val}});
+        }else {
         http.get('/v1/biz/library/1',{
           params:{
             number:reg_num,
@@ -152,7 +158,7 @@
               }))
               .then((res)=>{
                 if(res.data.code==200){
-                  this.$router.push({path: '/succeedapp'});
+                  this.$router.push({path: '/module/succeedapp'});
                   this.$buryData('batchIssue');
                 }
               })
@@ -163,7 +169,7 @@
           .catch((error)=>{
             console.log(error)
           })
-
+        }
       },
       //点击关注公众号
       onCopy:function (e) {

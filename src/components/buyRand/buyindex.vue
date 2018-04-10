@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="buysearch">
-      <h6>查询商标</h6>
+      <h6>购买商标</h6>
       <div class="search-box">
         <div class="selete" @click="isActive = !isActive">
           {{secrchval}}
@@ -17,7 +17,7 @@
     <div class="hot">
         <span>热门搜索</span>
       <ul>
-        <router-link tag="li" v-for="item,index in hotlist" :key="index" :to="{path:'/buylist',query:{vals:item,type:'按行业产品'}}">
+        <router-link tag="li" v-for="item,index in hotlist" :key="index" :to="{path:'/module/buylist',query:{vals:item,type:'按行业产品'}}">
           {{item}}
         </router-link>
       </ul>
@@ -42,7 +42,7 @@
             $('.tishi #tstext').text('请输入搜索内容');
             $('.tishi').show().delay(1000).fadeOut();
           }else {
-             this.$router.push({path: '/buylist',query: {vals: this.val,type:this.secrchval}});
+             this.$router.push({path: '/module/buylist',query: {vals: this.val,type:this.secrchval}});
           }
         }
       },
@@ -59,5 +59,5 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import "../../assets/css/register.scss"
+  @import "../../assets/css/register.scss";
 </style>

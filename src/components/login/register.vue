@@ -6,8 +6,8 @@
       <div class="kuaijie" v-show="isaccount">快捷登录</div>
     </div>
     <ul class="loginNav" v-show="!isaccount">
-      <router-link to="/register" tag="li">快捷登录</router-link>
-      <router-link to="/account" tag="li">账号登录</router-link>
+      <router-link to="/module/register" tag="li">快捷登录</router-link>
+      <router-link to="/module/account" tag="li">账号登录</router-link>
     </ul>
     <router-view class="conten"></router-view>
   </div>

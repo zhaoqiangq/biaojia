@@ -115,11 +115,11 @@
               let redirect = this.$route.query.redirect
 
               if(!redirect){
-                redirect = 'app'
+                redirect = '/module/app'
               }
 
               this.$router.push({
-                path: '/'+redirect
+                path: '/module/'+redirect
               })
               this.$buryData('userreg');
             })

@@ -12,11 +12,11 @@
     </ul>
     <div class="user_login" @click="Login">登录</div>
     <div class="font">
-      <router-link to="/password" tag="span">忘记密码?</router-link>
-       <router-link to="/zhuche" tag="span">立即注册</router-link>
+      <router-link to="/module/password" tag="span">忘记密码?</router-link>
+       <router-link to="/module/zhuche" tag="span">立即注册</router-link>
     </div>
     <p>
-      *我已阅读并同意 <router-link to="/userxy">《用户服务协议》</router-link>
+      *我已阅读并同意 <router-link to="/module/webuserxy">《用户服务协议》</router-link>
     </p>
   </div>
 </template>
@@ -46,7 +46,7 @@
                   redirect = 'app'
                }
                 this.$router.push({
-                        path: '/'+redirect
+                        path: '/module/'+redirect
                 })
                  this.$buryData('login');
             })

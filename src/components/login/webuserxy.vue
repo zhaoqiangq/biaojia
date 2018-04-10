@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="logheader" v-if="false">
+    <div class="logheader">
       <div class="return" @click="backHandle"></div>
       <span>用户服务协议</span>
     </div>
@@ -16,7 +16,7 @@
   export default {
     data(){
         return{
-            text:'',
+            text:''
         }
     },
     methods: {
@@ -39,4 +39,5 @@
 
 <style lang="scss" scoped>
   @import "../../assets/css/loging.scss"
+
 </style>

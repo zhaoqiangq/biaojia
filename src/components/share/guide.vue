@@ -22,7 +22,7 @@
           <li>
             <img src="../../assets/images/guide07.jpg"  alt="">
           </li>
-          <li>
+          <li >
             <img src="../../assets/images/guide08.jpg"  alt="">
           </li>
         </ul>
@@ -39,7 +39,7 @@
     },
     methods:{
       cutimg(){
-          this.cut +=1;
+        this.cut +=1;
           $('ul li').eq(this.cut).addClass('active').siblings().removeClass('active');
       }
     }

@@ -14,7 +14,7 @@
     >
       <ul class="sblist">
         <li v-for="item,index in sblist" :key="index">
-          <router-link tag="div" class="top" :to="{path:'/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num,isshow:true}}">
+          <router-link tag="div" class="top" :to="{path:'/module/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num,isshow:true}}">
             <img :src="item.tm_img" alt="">
             <div class="font">
               <h6>{{item.tm_name}} </h6>
@@ -28,7 +28,7 @@
       </ul>
       <ul class="sblist">
         <li v-for="item,index in jiazailist" :key="index">
-          <router-link tag="div" class="top" :to="{path:'/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num,isshow:true}}">
+          <router-link tag="div" class="top" :to="{path:'/module/sbdetails',query:{sblb:item.tm_bigtype,zch:item.reg_num,isshow:true}}">
             <img :src="item.tm_img" alt="">
             <div class="font">
               <h6>{{item.tm_name}} </h6>

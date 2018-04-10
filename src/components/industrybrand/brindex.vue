@@ -2,10 +2,10 @@
     <div class="brindex">
         <div class="brheader">
           <ul class="brnav">
-            <router-link tag="li" class="active" :to="{path:'/brindex'}">
+            <router-link tag="li" class="active" :to="{path:'/module/brindex'}">
               品牌维权
             </router-link>
-            <router-link tag="li"  :to="{path:'/industryindex'}">
+            <router-link tag="li"  :to="{path:'/module/industryindex'}">
               行业情报
             </router-link>
           </ul>
@@ -41,7 +41,7 @@
           $('.tishi #tstext').text('请输入商标名称');
           $('.tishi').show().delay(1000).fadeOut();
         }else {
-          this.$router.push({path: '/brseach',query: {vals: this.val}});
+          this.$router.push({path: '/module/brseach',query: {vals: this.val}});
         }
       }
     },

@@ -97,7 +97,7 @@
                 validate:this.duanxingyz,
               }))
               .then((res)=>{
-                this.$router.push({path: '/newpassword',query: {token: res.data.data.token}})
+                this.$router.push({path: '/module/newpassword',query: {token: res.data.data.token}})
              })
             .catch((error)=>{
               console.log(error)
