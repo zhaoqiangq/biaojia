@@ -11,22 +11,24 @@
            <p>快速选择</p>
             <ul class="cheboxlist">
               <li>
-                <input type="radio" value="0-5000" v-model="checkedNames"/>
+                <input type="radio" value="0-5000" v-model="checkedNames" @click="clear()" />
                 <label for="0-5000">0-5000</label>
               </li>
               <li>
-                <input type="radio" value="5000-10000" v-model="checkedNames"/>
+                <input type="radio" value="5000-10000" v-model="checkedNames" @click="clear()"/>
                 <label for="5000-10000">5000-10000</label>
               </li>
               <li>
-                <input type="radio" value="10000-10000000" v-model="checkedNames"/>
+                <input type="radio" value="10000-10000000" v-model="checkedNames" @click="clear()"/>
                 <label for="10000-10000000">10000以上</label>
               </li>
             </ul>
         </div>
         <div class="mnumber">
           <p>价格区间(自定义)</p>
-          <input type="number" v-model="mininputnumber"><span class="gan"></span> <input type="number" v-model="maxinputnumber">
+          <input type="number" v-model="mininputnumber" @click = "done()">
+          <span class="gan"></span>
+          <input type="number" v-model="maxinputnumber" @click = "done()">
         </div>
         <div class="buts">
               <input type="button" value="确定" @click="doSubmit">
@@ -47,17 +49,14 @@
         maxinputnumber:''    //最小价格
       }
     },
-    watch:{
-      mininputnumber:function () {
-        this.checkedNames = [];
-        deep:true;
-      },
-      maxinputnumber:function () {
-        this.checkedNames = [];
-        deep:true;
-      }
-    },
     methods:{
+      done:function () {
+        this.checkedNames = [];
+      },
+      clear:function () {
+        this.mininputnumber = '';
+        this.maxinputnumber = '';
+      },
       hidejiage: function () {
         this.$emit('hidejiage')
       },
@@ -84,8 +83,8 @@
           min : this.minnumber(),
           max : this.maxnumber()
         }
-        this.$emit('parjiage',data)
-        this.$emit('hidejiage')
+        this.$emit('parjiage',data);
+        this.$emit('hidejiage');
         this.checkedNames =[];
         this.mininputnumber ='';
         this.maxinputnumber ='';

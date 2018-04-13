@@ -75,7 +75,7 @@
       <div class="alert">
         <input type="text" placeholder="请输入手机号" v-model="ipone">
         <p>
-          <span>提示：</span>系统会在1小时后品牌报告以短信的形式发送给您。
+          <span>提示：</span>系统会在1小时后将品牌报告以短信的形式发送给您。
         </p>
         <div class="button">
           <span  @click="isalert = false">取消</span>
