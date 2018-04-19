@@ -22,7 +22,7 @@
       v-show="scrisShow"
     >
      <ul class="bsblist">
-       <router-link tag="li" v-for="item,index in sblist" :key="index" :to="{path:'/module/sbdetails',query:{sblb:item.sbbigclassid,zch:item.sbid,isshow:true,zhineng:false}}">
+       <router-link tag="li" v-for="item,index in sblist" :key="index" :to="{path:'/module/sbdetails',query:{sblb:item.sbbigclassid,zch:item.sbid,isshow:true,imgs:item.sbpic}}">
           <img :src="item.sbpic" alt="">
           <div class="font">
             <h6>{{item.sbbigclassid}}类 {{item.sbname}}</h6>

@@ -22,7 +22,7 @@
 </template>
 <script>
   import qs from 'qs'
-  import http from '../../config/http'
+  import http from '../../config/http1'
   export default {
     data () {
        return {
@@ -34,7 +34,7 @@
       //登录
       Login(){
         if(this.$checkLPhone(this.LUserPhone) && this.$checkLPsd(this.LUserPsd) ){
-          http.post('/site/login',
+          http.post('/api/public/login',
                 qs.stringify({
                    username:this.LUserPhone,
                     password:this.LUserPsd,

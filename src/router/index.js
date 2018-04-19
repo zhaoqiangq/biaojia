@@ -210,6 +210,12 @@ let indseach = (resolve) => {
   })
 }
 
+let patent = (resolve) => {
+  return require.ensure([], () => {
+    resolve(require('@/components/buyRand/patent'))
+  })
+}
+
 
 Vue.use(Router)
 
@@ -384,6 +390,13 @@ let router = new Router({
       path:'/module/indseach',
       meta: {title: '行业情报详情',},
       component:indseach
+    },
+
+    //---------专利--------------//
+    {
+      path:'/module/patent',
+      meta: {title: '专利申请',},
+      component:patent
     },
   ]
 })

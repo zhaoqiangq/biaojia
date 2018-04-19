@@ -12,7 +12,7 @@
 
 <script>
   import qs from 'qs'
-  import http from '../../config/http'
+  import http from '../../config/http1'
   export default {
     data(){
         return{
@@ -26,7 +26,7 @@
       },
     },
     created(){
-      http.get('/site/reg-agreement')
+      http.get('/api/public/reg-agreement')
       .then((res)=>{
             this.text = res.data.data.reg_content;
       })

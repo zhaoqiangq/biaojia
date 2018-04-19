@@ -1,0 +1,275 @@
+h3 {
+  margin: 0; }
+body {
+  overflow-x: hidden;
+  background-color: #fff; }
+.header {
+  width: 100%;
+  height: 0.99rem;
+  border-bottom: 1px solid #dddddd;
+  background-size: cover;
+  position: relative; }
+.header .fhicn {
+  width: 10%;
+  height: 1rem;
+  display: none;
+  background: url(#{$backimg}fhicn.png) no-repeat;
+  background-size: 0.23rem 0.41rem;
+  background-position: center center;
+  float: left;
+  position: relative;
+  z-index: 1; }
+.header .title {
+  /* width: 1.43rem; */
+  height: 100%;
+  line-height: 0.99rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+  font-size: 0.38rem;
+  color: #001026;
+  font-weight: 500;
+   }
+.banner {
+  width: 100%;
+  height: 4rem;
+  background: url(#{$backimg}banner.jpg) no-repeat;
+  background-size: 7.5rem 4rem; }
+.price {
+  width: 100%;
+  height: 1.8rem;
+  border-bottom: 0.1rem solid #f0f0f0;
+  padding: 0.3rem 0.15rem 0 0.15rem;
+  box-sizing: border-box;
+  line-height: 0.35rem; }
+.price h6 {
+  font-size: 0.34rem;
+  color: #434343;
+  line-height: 0.4rem;
+  margin-bottom: 0.2rem;
+  font-weight: 500; }
+.price span {
+  font-size: 0.34rem;
+  color: #e61010;
+  margin-right: 0.3rem; }
+.price i {
+  font-size: 0.26rem;
+  color: #868686;
+  font-style: normal; }
+.price i span {
+  text-decoration: line-through;
+  font-size: 0.26rem;
+  color: #868686; }
+.form {
+  width: 100%;
+  height: 4.7rem;
+  border-bottom: 0.1rem solid #f0f0f0;
+  padding-top: 0.2rem; }
+.form h6 {
+  font-size: 0.34rem;
+  color: #434343;
+  line-height: 0.4rem;
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+  margin-left: 0.15rem; }
+.form li {
+  width: 30.4%;
+  height: 0.8rem;
+  border: 1px solid #e6e6e6;
+  text-align: center;
+  line-height: 0.8rem;
+  float: left;
+  margin-left: 0.15rem;
+  margin-bottom: 0.15rem;
+  font-size: 0.2rem;
+  color: #434343; }
+.form li.active {
+  border: 1px solid #28abe1;
+  position: relative; }
+.form li.active:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 0.33rem;
+  height: 0.3rem;
+  background: url(#{$backimg}icon01.png) no-repeat;
+  background-size: 0.32rem 0.3rem;
+  background-position: center center; }
+.serve {
+  width: 100%;
+  padding: 0.3rem 0.15rem;
+  box-sizing: border-box; }
+.serve h6 {
+  font-size: 0.34rem;
+  color: #434343;
+  line-height: 0.35rem;
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+  margin-left: 0.15rem;
+  padding-left: 0.2rem;
+  box-sizing: border-box;
+  position: relative; }
+.serve h6:before {
+  content: "";
+  width: 0.04rem;
+  height: 0.32rem;
+  background: #e61010;
+  position: absolute;
+  top: 0;
+  left: 0; }
+.serve ul {
+  display: none;
+  border: 1px solid #dcdcdc; }
+.serve ul li {
+  width: 100%;
+  border-bottom: 1px solid #dcdcdc;
+  font-size: 0.22rem;
+  line-height: 0.34rem;
+  color: #646464;
+  padding: 0 0.15rem;
+  box-sizing: border-box; }
+.serve ul li:after {
+  content: "";
+  clear: both;
+  display: block;
+  line-height: 0;
+  height: 0; }
+.serve ul li:last-child {
+  border: none; }
+.serve ul li span {
+  line-height: 0.7rem; }
+.serve ul li .right {
+  width: 73.73333%;
+  height: 100%;
+  float: right;
+  border-left: 1px solid #dcdcdc;
+  line-height: 0.4rem;
+  padding: 0.2rem 0.15rem; }
+.serve ul li .right p {
+  color: #e61010;
+  margin-bottom: 0.15rem; }
+.serve ul li .right span {
+  color: #e61010; }
+.serve .font {
+  padding-left: 0.2rem;
+  box-sizing: border-box;
+  display: none;
+  font-size: 0.25rem;
+  color: #434343;
+  line-height: 0.45rem; }
+.serve .font.active {
+  display: block; }
+.serve .fontqi {
+  padding-left: 0.2rem;
+  box-sizing: border-box;
+  display: none;
+  font-size: 0.25rem;
+  color: #434343;
+  line-height: 0.45rem; }
+.serve .fontqi.active {
+  display: block; }
+
+.flow {
+  display: none;
+  width: 100%;
+  height: 6.53rem;
+  background: url(#{$backimg}flow.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center; }
+
+.flow4 {
+  display: none;
+  width: 100%;
+  height: 7.23rem;
+  background: url(#{$backimg}flow4.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center; }
+
+.flow6 {
+  display: none;
+  width: 100%;
+  height: 16.48rem;
+  background: url(#{$backimg}flow6.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center; }
+
+.flow9 {
+  display: none;
+  width: 100%;
+  height: 8.02rem;
+  background: url(#{$backimg}flow9.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center; }
+
+.flow10 {
+  display: none;
+  width: 100%;
+  height: 9.47rem;
+  background: url(#{$backimg}flow10.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center; }
+
+.certificate {
+  display: none;
+  width: 100%;
+  height: 11.23rem;
+  background: url(#{$backimg}certificate.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center; }
+
+.certificate4 {
+  display: none;
+  width: 100%;
+  height: 11.73rem;
+  background: url(#{$backimg}certificate4.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center; }
+//
+.benefit {
+  width: 100%;
+  height: 7.36rem;
+  background: url(#{$backimg}benefit.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center; }
+
+.know {
+  width: 100%;
+  height: 5.9rem;
+  background: url(#{$backimg}know.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center; }
+
+.distinction {
+  width: 100%;
+  height: 5.15rem;
+  background: url(#{$backimg}distinction.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center; }
+
+.fotop {
+  width: 100%;
+  margin-bottom: 1rem;
+  height: 8.6rem;
+  background: url(#{$backimg}fotop.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center; }
+
+a.footer {
+  display: block;
+  width: 100%;
+  height: 1rem;
+  text-align: center;
+  line-height: 1rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  background: #28abe1;
+  font-size: 0.3rem;
+  color: #fff; }

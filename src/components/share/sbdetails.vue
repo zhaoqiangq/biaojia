@@ -3,12 +3,13 @@
       <div class="xqheader">
           <div class="xqreturn" @click="backHandle"></div>
           <span>商标详情</span>
-        <router-link tag="div" class="recommend"  v-if="iszhineng" :to='{path:"/module/recommend",query:{sblb:details.tm_bigtype}}'>
-          智能推荐
+        <router-link tag="div" class="recommend" :class="{active:$route.query.zhineng}"  v-if="iszhineng" :to='{path:"/module/recommend",query:{sblb:details.tm_bigtype}}'>
+       智能推荐
         </router-link>
       </div>
       <div class="xzimg">
-        <img v-bind:src="details.tm_img" alt="">
+        <!--<img v-bind:src="details.tm_img" alt="">-->
+        <img v-bind:src="isimg ? isimg :details.tm_img" alt="">
         <span>{{details.tm_name}}</span>
       </div>
       <ul class="xqlist">
@@ -62,7 +63,8 @@
         zch:this.$route.query.zch,
         intCls:this.$route.query.sblb,
         isshow:this.$route.query.isshow,
-        iszhineng:this.$route.query.zhineng
+        iszhineng:this.$route.query.zhineng,
+        isimg:this.$route.query.imgs
       }
     },
     methods:{

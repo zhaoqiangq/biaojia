@@ -10,22 +10,12 @@ if(token==null){
   token = token.replace("\"","").replace("\"","")
 }
 var HTTP = axios.create({
-  baseURL:'http://106.15.80.128',
+  baseURL:'http://106.15.26.172',
   responseType:'json',
   headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'accessToken': token
           }
 })
-HTTP.get('v1/member/user')
-  .then((res)=>{
-    console.log(res)
-  })
-  .catch((error)=>{
-    if(error.response.data.code==401){
-      window.localStorage.removeItem('shanbiao');
-    }
-  })
-
 
 export default HTTP;

@@ -25,6 +25,10 @@
     color: #406ff4;
     font-size: .34rem;
     line-height: 1rem;
+    display: none;
+    &.active{
+      display: block;
+    }
   }
 }
 .xzimg{

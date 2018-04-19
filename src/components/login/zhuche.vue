@@ -36,7 +36,7 @@
 
 <script>
   import qs from 'qs'
-  import http from '../../config/http'
+  import http from '../../config/http1'
 
   export default {
     data () {
@@ -84,12 +84,13 @@
       //获取手机验证码
       getphonecode(){
         if(this.$checkLPhone(this.LUserPhone) && this.$checkLpicma(this.picLyanzhengma) && this.$checkLPsd(this.LUserPsd) && this.$checkLPsdTo(this.LUserPsdTo,this.LUserPsd)){
-          http.post('/v1/tool/sms',
-              qs.stringify({
-                  uuid:this.uuid,
-                  validate:this.picLyanzhengma,
-                  mobile:this.LUserPhone
-                }))
+          http.post('/api/public/send-sms',
+            qs.stringify({
+              imguuid:this.uuid,
+              imgcode:this.picLyanzhengma,
+              mobile:this.LUserPhone,
+              type:'login'
+            }))
             .then((res)=>{
                 this.getCode();
             })
@@ -99,23 +100,21 @@
             })
         }
       },
-
-
       Login(){
        if(this.$checkLPhone(this.LUserPhone) && this.$checkLpicma(this.picLyanzhengma) && this.$checkLPsd(this.LUserPsd) && this.$checkLPsdTo(this.LUserPsdTo,this.LUserPsd)){
-          http.post('/site/register',
+          http.post('/api/public/register',
             qs.stringify({
               mobile_phone:this.LUserPhone,
               password:this.LUserPsd,
               repassword:this.LUserPsdTo,
-              validate:this.duanxingyz
+              smscode:this.duanxingyz
             }))
             .then((res)=>{
              this.$local.save("shanbiao",res.data.data.access_token)
               let redirect = this.$route.query.redirect
 
               if(!redirect){
-                redirect = '/module/app'
+                redirect = 'app'
               }
 
               this.$router.push({
@@ -132,18 +131,18 @@
       }
     },
     created(){
-        //默认获取验证码
-        http.get('/v1/tool/captcha/search',{
-          params:{
-            uuid:this.uuid,
-          }
-        })
+      //默认获取验证码
+         http.get('/api/captcha/index',{
+           params:{
+               uuid:this.uuid,
+            }
+         })
         .then((res)=>{
-             this.imgcode = res.data.data.url
-            this.imgdatacode = res.data.data.url
+          this.imgcode = res.request.responseURL;
+          this.imgdatacode = res.request.responseURL
         })
         .catch((error)=>{
-            console.log(error)
+          console.log(error)
         })
      }
 }

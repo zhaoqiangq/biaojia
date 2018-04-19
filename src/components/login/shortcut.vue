@@ -26,7 +26,7 @@
 </template>
 <script>
   import qs from 'qs'
-  import http from '../../config/http'
+  import http from '../../config/http1'
   export default {
     data () {
       return {
@@ -66,11 +66,12 @@
       //获取手机验证码
       getphonecode(){
         if(this.$checkLPhone(this.LUserPhone)==true && this.$checkLpicma(this.picLyanzhengma)){
-          http.post('/v1/tool/sms',
+          http.post('/api/public/send-sms',
               qs.stringify({
-                  uuid:this.uuid,
-                  validate:this.picLyanzhengma,
-                  mobile:this.LUserPhone
+                  imguuid:this.uuid,
+                  imgcode:this.picLyanzhengma,
+                  mobile:this.LUserPhone,
+                  type:'login'
                 }))
             .then((res)=>{
                 this.getCode();
@@ -84,11 +85,10 @@
       //登录验证
       Login(){
         if(this.$checkLPhone(this.LUserPhone)==true && this.$checkLpicma(this.picLyanzhengma)){
-          http.post('/site/login',
+          http.post('/api/public/fast-login',
             qs.stringify({
               username:this.LUserPhone,
-              validate:this.duanxingyz,
-              fast:true
+              smscode:this.duanxingyz,
             }))
             .then((res)=>{
               this.$local.save("shanbiao",res.data.data.access_token);
@@ -161,14 +161,14 @@
     },
     created(){
         //默认获取验证码
-        http.get('/v1/tool/captcha/search',{
+        http.get('/api/captcha/index',{
           params:{
             uuid:this.uuid,
           }
         })
         .then((res)=>{
-          this.imgcode = res.data.data.url
-           this.imgdatacode = res.data.data.url
+           this.imgcode = res.request.responseURL;
+           this.imgdatacode = res.request.responseURL
         })
         .catch((error)=>{
             console.log(error)
